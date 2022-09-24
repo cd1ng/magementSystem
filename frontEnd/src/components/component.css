@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+  height: 48px;
+  line-height: 48px;
+  color: white;
+  justify-content: space-between;
+}
+.site-layout-background{
+  overflow-y: auto;
+  height:100%;
+  width:200px;
+}

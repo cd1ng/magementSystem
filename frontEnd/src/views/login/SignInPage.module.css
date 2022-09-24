@@ -1,0 +1,67 @@
+.layout{
+    display: flex;
+    width: 1320px;
+    margin: 10px auto 0;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.asideImg{
+    display: block;
+    width: 300px;
+    height: 600px;
+}
+
+.signBox{
+    box-sizing: border-box;
+    width: 428px;
+    height: 500px;
+    padding: 30px 72px 70px;
+    border-radius: 25px;
+    background-color: #fff;
+}
+
+h2{
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.styleInput{
+    width: 254px;
+    height: 46px;
+    margin-bottom: 10px;
+    outline: none;
+    background-color: #FAFAFA;
+    border:none;
+}
+
+.login-form-button{
+    width: 284px;
+    height: 48px;
+    border: none;
+    background: linear-gradient(to right,#00C2FF, #0047FF);
+    color: #fff;
+    font-size: 16px;
+    margin:20px 0;
+    user-select:none;
+}
+
+.register{
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    color: #1DA0FF;
+}
+.checked{
+    width: 20px !important;
+    height: 20px !important;
+    color: #A1A1A1;
+}
+.register{
+    text-decoration: none;
+    user-select: none;
+}
+.checked-text{
+    word-break: keep-all;
+}
