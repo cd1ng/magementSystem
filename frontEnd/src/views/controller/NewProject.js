@@ -71,10 +71,6 @@ const NewProject= () => {
                 <Input />
               </Form.Item>
               
-              <Form.Item label="参与部门" name="projectName">
-                <Input />
-              </Form.Item>
-              
               <Form.Item label="负责人" name="customer">
                 <Input />
               </Form.Item>

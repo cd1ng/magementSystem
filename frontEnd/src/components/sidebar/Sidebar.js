@@ -15,7 +15,7 @@ const item =[
   {
     key: '/controller',
     icon: <FormOutlined />,
-    label: '项目管理',
+    label: '项目',
     children: [
       { label: '新建项目', icon:<CreditCardOutlined />,key: '/controller/newProject' },
       { label: '项目人员', icon:<AuditOutlined />,key: '/controller/authority' }
@@ -27,7 +27,6 @@ const item =[
     label: '项目详情',
     children: [
       { label: '项目列表', icon:<InfoOutlined />,key: '/projectInfo/information' },
-      { label: '项目进度', icon:<LineChartOutlined />,key: '/projectInfo/process' },
     ],
   },
   {

@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import {withRouter} from 'react-router-dom'
 import {Row,Col,Anchor,Affix,PageHeader,BackTop,Form ,message, Upload,Timeline,Button} from 'antd'
 import { UpCircleTwoTone ,UploadOutlined } from '@ant-design/icons';
@@ -36,6 +36,7 @@ function ProjectInformation(props) {
   const [container, setContainer] = useState(null)
   const currentUser = useSelector(state => state.UserReducer.userName)
   const code = props.location.pathname.slice(25)
+  
   return (
     <div className="scrollable-container" ref={setContainer} style={{height:"100%",overflowY:"auto"}}>     
       <Affix target={() => container} style={{ position: 'absolute', top: 80, right: 30}}>
@@ -88,8 +89,6 @@ function ProjectInformation(props) {
       <p style={{marginLeft:"45px",fontSize:"12px"}}>以图表的形式体现项目进度</p>
       <Row>
         <Col span={20} offset={1} style={{backgroundColor:"#fff",padding:"20px"}}>
-          <div style={{height:"300px"}}>
-          </div>
         </Col>
       </Row>
 
