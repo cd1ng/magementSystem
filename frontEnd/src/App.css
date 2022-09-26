@@ -12,3 +12,10 @@
 ::-webkit-scrollbar-track {
   background-color: #ddd
 }
+
+#root,
+.ant-layout,
+body,
+html {
+  height: 100%;
+}

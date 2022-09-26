@@ -3,14 +3,13 @@ const userRouter = new Router({ prefix: '/users' })
 
 const {useValidator,verifyUser,crpytPassword,verifyLogin} = require("../middleware/user.middleware")
 const { auth } = require('../middleware/auth.middleware')
-const {login,changePassword,updateUser,getProfile} =require('../controller/user.controller')
+const {register,login,updateUser,getProfile} =require('../controller/user.controller')
 
+// 注册接口
+userRouter.post('/register', useValidator, verifyUser,crpytPassword, register)
 
 // 登录接口
 userRouter.post('/login',useValidator,verifyLogin, login)
-
-// 修改密码接口
-// userRouter.patch('/', auth, crpytPassword, changePassword)
 
 // 修改用户资料
 userRouter.post('/setProfile',updateUser)

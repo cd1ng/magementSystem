@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  height: 48px;
+  line-height: 48px;
+  color: white;
+  justify-content: space-between;
+}
+
+.logo{
+  font-size: 24px;
+}
+.notificationHub{
+  width: 300px;
+  background-Color:#fff;
+  box-shadow:1px 1px 20px #aaa;
+  border-radius:2px;
+  word-wrap:break-word;
+}

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import * as echarts from "echarts";
+import {Row,Col} from "antd"
 
 function Process() {
   const chartRef = useRef(null);
@@ -10,7 +11,7 @@ function Process() {
       legend: {},
       tooltip: {},
       // 声明一个 X 轴
-      xAxis: {data: ['连接器事业部', '散热器事业部', '压铸事业部', '冲压事业部']},
+      xAxis: {data: ['Xx事业部', 'Yxas事业部', 'xasA事业部', 'ASz事业部']},
       // 声明一个 Y 轴，数值轴。
       yAxis: { type: 'value',name: '项目数',position: 'left',
         axisLabel: {formatter: '{value}'
@@ -59,9 +60,11 @@ function Process() {
   }, []);
 
   return (
-    <div style={{ textAlign: "center" }}>
-      <div ref={chartRef} style={{ height: "400px",width:"1200px"}}></div>
-    </div>
+    <Row style={{marginTop:"40px"}} >
+      <Col span={22} offset={1} style={{backgroundColor:"#fff",padding:"20px"}}>
+        <div ref={chartRef} style={{ height: "400px",width:"900px"}}></div>
+      </Col>
+    </Row>
   );
 }
 

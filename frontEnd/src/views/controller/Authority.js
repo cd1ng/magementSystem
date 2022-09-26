@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import * as echarts from "echarts";
+import {Row,Col} from 'antd'
 import data from '../../data/flare.json'
 
 function Authority() {
@@ -16,10 +17,10 @@ function Authority() {
         {
           type: 'tree',
           data: [data],
-          top: '5%',
+          top: '0',
           left: '10%',
-          bottom: '5%',
-          right: '30%',
+          bottom: '10%',
+          right: '20%',
           symbolSize: 8,
           label: {
             position: 'center',
@@ -35,13 +36,10 @@ function Authority() {
               align: 'left'
             }
           },
-          // emphasis: {
-          //   focus: 'descendant'
-          // },
           expandAndCollapse: true, // 子树折叠
-          initialTreeDepth: 3
-          // animationDuration: 550,
-          // animationDurationUpdate: 750
+          initialTreeDepth: 3,     // 展开层级
+          animationDuration: 550,
+          animationDurationUpdate: 750
         }
       ]
     }
@@ -49,9 +47,11 @@ function Authority() {
   }, []);
 
   return (
-    <div style={{ textAlign: "center" }}>
-      <div ref={treeRef} style={{ height: "600px",width:"1200px"}}></div>
-    </div>
+    <Row style={{marginTop:"40px"}} >
+      <Col span={22} offset={1} style={{backgroundColor:"#fff",padding:"20px"}}>
+        <div ref={treeRef} style={{ height: "520px",width:"1000px"}}></div>
+      </Col>
+    </Row>
   );
 }
 

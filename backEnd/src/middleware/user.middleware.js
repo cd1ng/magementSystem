@@ -4,8 +4,8 @@ const bcrypt = require("bcryptjs")
 
 // 中间件单一职责
 const useValidator = async (ctx, next) => {
-  const {user_name,password} = ctx.request.body
-  if (!user_name || !password) {
+  const {jobNumber,password} = ctx.request.body
+  if (jobNumber===''|| password==='') {
     console.error('用户名或密码为空', ctx.request.body)
     ctx.app.emit('error', userFormateError, ctx)
     // 常量进行封装
@@ -22,18 +22,18 @@ const useValidator = async (ctx, next) => {
 
 // async 函数返回的是promise的对象
 const verifyUser = async (ctx, next) => {
-  const { user_name } = ctx.request.body
-  // TODO 传入参数{user_name}和user_name搞混，前者传入对象，解耦后获取值
+  const { jobNumber } = ctx.request.body
+  // TODO 传入参数{jobNumber}和jobNumber搞混，前者传入对象，解耦后获取值
   // 加上 await 返回表达式
-  // if (await getUserInfo({ user_name })) {
+  // if (await getUserInfo({ jobNumber })) {
   //   ctx.app.emit('error', userAleadyExited, ctx)
   //   return
   // }
   try {
-    const res = await getUserInfo({ user_name })
+    const res = await getUserInfo({ jobNumber })
 
     if (res) {
-      console.error('用户名已经存在', { user_name })
+      console.error('用户名已经存在', { jobNumber })
       ctx.app.emit('error', userAlreadyExited, ctx)
       return
     }
@@ -55,11 +55,11 @@ const crpytPassword = async (ctx, next) => {
 }
 
 const verifyLogin = async (ctx, next) => {
-  const { user_name, password } = ctx.request.body
+  const { jobNumber, password } = ctx.request.body
   try {
-    const res = await getUserInfo({ user_name })
+    const res = await getUserInfo({ jobNumber })
     if (!res) {
-      console.error('用户名不存在', { user_name })
+      console.error('用户名不存在', { jobNumber })
       ctx.app.emit('error', userDoesNotExist, ctx)
       return
     }
