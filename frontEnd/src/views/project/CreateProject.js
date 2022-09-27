@@ -1,4 +1,3 @@
-
 import React,{useState} from 'react';
 import { Button, Col, DatePicker, Form, Input,Row,Steps,Empty,Modal} from 'antd';
 
@@ -16,7 +15,7 @@ const steps = [
 const { RangePicker } = DatePicker
 const { Step } = Steps
 
-const NewProject= () => {
+const CreateProject= () => {
   const [current, setCurrent] = useState(0)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const next = () => setCurrent(current + 1)
@@ -116,4 +115,4 @@ const NewProject= () => {
   );
 };
 
-export default NewProject
+export default CreateProject

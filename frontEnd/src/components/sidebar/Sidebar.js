@@ -2,7 +2,7 @@ import React from 'react'
 import {Layout,Menu} from 'antd'
 import {withRouter} from 'react-router-dom'
 import { BarChartOutlined, MessageOutlined, FormOutlined,UserOutlined,CreditCardOutlined,
-  InfoOutlined,AuditOutlined,LineChartOutlined,UnorderedListOutlined,SettingOutlined } from '@ant-design/icons';
+  InfoOutlined,UnorderedListOutlined,SettingOutlined } from '@ant-design/icons';
 import styles from "./Sidebar.module.css"
 const {Sider} = Layout
 
@@ -13,30 +13,26 @@ const item =[
     label: '工作台',
   },
   {
-    key: '/controller',
-    icon: <FormOutlined />,
+    key: '/project',
+    icon: <BarChartOutlined />,
     label: '项目',
     children: [
-      { label: '新建项目', icon:<CreditCardOutlined />,key: '/controller/newProject' },
-      { label: '项目人员', icon:<AuditOutlined />,key: '/controller/authority' }
+      { label: '新建项目', icon:<CreditCardOutlined />,key: '/project/create' },
+      { label: '项目列表', icon:<InfoOutlined />,key: '/project/list' },
     ],
   },
   {
-    key: '/projectInfo',
-    icon: <BarChartOutlined />,
-    label: '项目详情',
-    children: [
-      { label: '项目列表', icon:<InfoOutlined />,key: '/projectInfo/information' },
-    ],
+    key: '/authority',
+    icon: <FormOutlined />,
+    label: '权限管理',
   },
   {
-    key: '/inform',
+    key: '/message',
     icon: <MessageOutlined />,
     label: '消息中心',
     children: [
-      // { label: '新建通知', icon:<EditOutlined />,key: '/inform/newInfo' },
-      { label: '消息设置', icon:<SettingOutlined />,key: '/inform/infoSetting' },
-      { label: '消息记录', icon:<UnorderedListOutlined />,key: '/inform/infoRecord' },
+      { label: '消息设置', icon:<SettingOutlined />,key: '/message/setting' },
+      { label: '消息记录', icon:<UnorderedListOutlined />,key: '/message/list' },
     ],
   },
 ]

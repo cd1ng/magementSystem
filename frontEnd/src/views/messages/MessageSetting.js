@@ -41,9 +41,7 @@ const data = [
     ),
     informationPerson:(
       <>
-        <Tag>负责人</Tag>
-        <Tag>参与者</Tag>
-        <Tag>关注</Tag>
+        <Tag>项目全体人员</Tag>
       </>
     )
   },
@@ -58,8 +56,7 @@ const data = [
     ),    
     informationPerson:(
       <>
-        <Tag>负责人</Tag>
-        <Tag>参与者</Tag>
+        <Tag>项目全体人员</Tag>
       </>
     )
   },
@@ -72,12 +69,7 @@ const data = [
         <Tag color="warning">阶段到期时间之前5天</Tag>
       </>
     ),
-    informationPerson:(
-      <>
-        <Tag>负责人</Tag>
-        <Tag>参与者</Tag>
-      </>
-    )
+    informationPerson:<Tag>项目全体人员</Tag>
   },
   {
     key:'4',
@@ -88,13 +80,7 @@ const data = [
         <Tag color="warning">阶段到期时间之前5天</Tag>
       </>
     ),
-    informationPerson:(
-      <>
-        <Tag>负责人</Tag>
-        <Tag>参与者</Tag>
-        <Tag>关注</Tag>
-      </>
-    )
+    informationPerson:<Tag>项目全体人员</Tag>
   },
   {
     key:'5',
@@ -103,12 +89,7 @@ const data = [
     <>
       <Tag color="error">超出项目周期</Tag>
     </>),
-    informationPerson:(
-      <>
-        <Tag>负责人</Tag>
-        <Tag>关注</Tag>
-      </>
-    )
+    informationPerson:<Tag>项目全体人员</Tag>
   },
   {
     key:'6',
@@ -118,13 +99,7 @@ const data = [
         <Tag color="success">项目发起人确认</Tag>
       </>
     ),
-    informationPerson:(
-      <>
-        <Tag>负责人</Tag>
-        <Tag>参与者</Tag>
-        <Tag>关注</Tag>
-      </>
-    )
+    informationPerson:<Tag>项目全体人员</Tag>
   },
   {
     key:'7',
@@ -134,22 +109,16 @@ const data = [
         <Tag color="processing">项目发起人确认</Tag>
       </>
     ),
-    informationPerson:(
-      <>
-        <Tag>负责人</Tag>
-        <Tag>参与者</Tag>
-        <Tag>关注</Tag>
-      </>
-    )
+    informationPerson:<Tag>项目全体人员</Tag>
   },
 ];
 
-const InformSetting = () => {
+const MessageSetting = () => {
   return(
     <>
-      <Divider orientation="left">系统通知设置修改</Divider>
+      <Divider orientation="left">消息设置</Divider>
       <Table columns={columns} dataSource={data} pagination={false}/>
     </>
   )
 }
-export default InformSetting;
+export default MessageSetting;

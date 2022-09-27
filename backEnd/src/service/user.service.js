@@ -30,7 +30,7 @@ class UserService{
       attributes: ['id', 'jobNumber','userName', 'password'],
       where:whereOpt,
     })
-    console.log(res.dataValues)
+    console.log(res)
     return res?res.dataValues:null
   };
 

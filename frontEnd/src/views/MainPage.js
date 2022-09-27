@@ -5,11 +5,9 @@ import { Switch,Route,Redirect } from 'react-router-dom';
 import Sidebar from "../components/sidebar/Sidebar"
 import HeaderComponent from "../components/header/HeaderComponent"
 import Home from './home/Home';
-import Controller from './controller/Controller';
-import NoPermission from './noPermission/NoPermission'
-import Inform from './inform/Inform';
-import ProjectInfo from './projectInfo/ProjectInfo';
-
+import Message from './messages/Message';
+import Authority from './authority/Authority'
+import Project from './project/Project'
 const { Content } = Layout;
 
 const MainPage = () => {
@@ -21,11 +19,10 @@ const MainPage = () => {
       <Content>
         <Switch>
           <Route exact path="/home" component={Home}/>
-          <Route path="/controller" component={Controller}/>
-          <Route path="/projectInfo" component={ProjectInfo}/>
-          <Route path="/inform" component={Inform}/>
+          <Route path="/authority" component={Authority}/>
+          <Route path="/project" component={Project}/>
+          <Route path="/message" component={Message}/>
           <Redirect from="/" to="/home" exact/>
-          <Route path="*" component={NoPermission} />
         </Switch>
       </Content>
     </Layout>
