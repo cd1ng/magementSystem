@@ -5,15 +5,12 @@ const {useValidator,verifyUser,crpytPassword,verifyLogin} = require("../middlewa
 const { auth } = require('../middleware/auth.middleware')
 const {register,login,updateUser,getProfile} =require('../controller/user.controller')
 
-// 注册接口
+// 添加接口
 userRouter.post('/register', useValidator, verifyUser,crpytPassword, register)
 
 // 登录接口
 userRouter.post('/login',useValidator,verifyLogin, login)
 
-// 修改用户资料
-userRouter.post('/setProfile',updateUser)
-userRouter.post('/profile',getProfile)
 
 
 module.exports = userRouter

@@ -89,6 +89,7 @@ const CreateProject= () => {
               <Empty />
             </div>
           )}
+
           <div style={{marginRight:"150px"}}>
             {current < steps.length - 1 && (
               <Button type="primary" onClick={() => next()} style={{float:"right"}}>
@@ -108,6 +109,7 @@ const CreateProject= () => {
           </div>
         </Col>
       </Row>
+      {/* 信息核对输入框 */}
       <Modal open={isModalOpen} onOk={handleOk} onCancel={handleCancel} cancelText={"取消"} okText={"提交"}>
         <p>XXX,请确认该项目信息！</p>
       </Modal>

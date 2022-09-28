@@ -34,4 +34,9 @@ module.exports = {
     message: '无效的token',
     result: '',
   },
+  userAlreadyExited:{
+    code:'20200',
+    message:'错误的信息',
+    result:"",
+  }
 }

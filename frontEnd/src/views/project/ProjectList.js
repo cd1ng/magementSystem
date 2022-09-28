@@ -1,94 +1,63 @@
-import React,{useRef} from 'react';
+import React,{useEffect, useRef,useState} from 'react';
 import { Table,Row,Col,Button,Select,DatePicker } from 'antd';
 import { useHistory } from 'react-router-dom';
 const { RangePicker } = DatePicker;
 const { Option } = Select;
-const data = [
-  {
-    key:'1XAXSXASXSXAS',
-    projectID: '1XAXSXASXSXAS',
-    projectName: 'JXSAXSAXSAXAXA',
-    customer: 'HW',
-    projectStatus:'项目评审',
-    beginTime:'2020/11/12',
-    endTime:'2022/11/16',
-  },
-  {
-    key: 'Smkfmk1e12123S',
-    projectID: 'Smkfmk1e12123S',
-    projectName: 'xsaamCMKACAXA',
-    customer: 'HW',
-    projectStatus:'评审阶段',
-    beginTime:'2021/11/12',
-    endTime:'2022/5/4',
-  },
-  {
-    key: 'XSAAXAASL',
-    projectID: 'XSAAXAASL',
-    projectName: 'XSALXXSAXASXSAX',
-    customer: 'HJ',
-    projectStatus:'生产阶段',
-    beginTime:'2022/3/4',
-    endTime:'2022/8/18',
-  },
-    {
-    key: 'CDS1XAXSXASXSXAS',
-    projectID: 'CDS1XAXSXASXSXAS',
-    projectName: 'SAXSAAXSAXSAXAXA',
-    customer: 'XJ',
-    projectStatus:'生产阶段',
-    beginTime:'2020/11/12',
-    endTime:'2022/11/16',
-  },
-  {
-    key: 'PPAS132CCDSCZ',
-    projectID: 'PPAS132CCDSCZ',
-    projectName: 'MSKMXKA13213',
-    customer: 'HJ',
-    projectStatus:'项目逾期',
-    beginTime:'2019/08/19',
-    endTime:'2021/02/38',
-  },
-];
 
 const ProjectList = () => {
-  const history = useHistory()
-  const inputRef = useRef()
-  const handleSearch = ()=>console.log(inputRef.current.value)
-  const columns = [
-  {
-    title: '项目编号',
-    dataIndex: 'projectID',
-    key: 'projectID',
-    render: (text) => <a onClick={(e)=>history.push('/project/list/'+e.target.innerHTML)}>{text}</a>,
-  },
-  {
-    title: '项目名',
-    dataIndex: 'projectName',
-    key: 'projectName',
-    render: (text) => <b>{text}</b>,
-  },
-  {
-    title: '客户',
-    dataIndex: 'customer',
-    key: 'customer',
-  },
-  {
-    title: '起始时间',
-    dataIndex: 'beginTime',
-    key: 'beginTime',
-  },
-  {
-    title: '项目交期',
-    key: 'endTime',
-    dataIndex: 'endTime',
-  },
-  {
-    title: '项目状态',
-    key: 'projectStatus',
-    dataIndex: 'projectStatus',
-  },
-];
+    const history = useHistory()
+    const inputRef = useRef()
+    const [project,setProject] = useState([])
+    const handleSearch = ()=>console.log(inputRef.current.value)
+    useEffect(()=>{
+      fetch("http://localhost:8000/project/allProjects")
+      .then(res=>res.json())
+      .then(res=>setProject(res.result))
+    },[])
+    const columns = [
+    {
+      title: '项目编号',
+      dataIndex: 'projectID',
+      key: 'projectID',
+      render: (text) => <a onClick={(e)=>history.push('/project/list/'+e.target.innerHTML)}>{text}</a>,
+    },
+    {
+      title: '项目名',
+      dataIndex: 'projectName',
+      key: 'projectName',
+      render: (text) => <b>{text}</b>,
+    },
+    {
+      title: '客户',
+      dataIndex: 'customer',
+      key: 'customer',
+    },
+    {
+      title: '起始时间',
+      dataIndex: 'beginTime',
+      key: 'beginTime',
+    },
+    {
+      title: '项目交期',
+      key: 'endTime',
+      dataIndex: 'endTime',
+    },
+    {
+      title: '项目状态',
+      key: 'projectStatus',
+      dataIndex: 'projectStatus',
+    },
+    ];
+    let data = []
+    project.map((item)=>data.push({
+      'key':item.id,
+      'projectID': item.projectID,
+      'projectName':item.projectName,
+      'customer': item.customer,
+      'projectStatus':item.projectStatus,
+      'beginTime':item.beginTime,
+      'endTime':item.endTime
+    }))
   return(
     <div style={{height:"100%",overflowY:"auto"}}>
     <Row style={{marginTop:"40px"}} >
@@ -122,4 +91,5 @@ const ProjectList = () => {
     </div>
   )
 }
+
 export default ProjectList;

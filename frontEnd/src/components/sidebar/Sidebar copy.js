@@ -6,20 +6,6 @@ import { BarChartOutlined, MessageOutlined, FormOutlined,UserOutlined,CreditCard
 import styles from "./Sidebar.module.css"
 const {Sider} = Layout
 
-const changeTo = {
-  '/home':"工作台",
-  '/project':"项目",
-  '/authority':"权限管理",
-  '/message':"消息中心"
-}
-
-const iconMap = {
-  '/home':<UserOutlined />,
-  '/project':<BarChartOutlined />,
-  '/authority':<FormOutlined />,
-  '/message':<MessageOutlined />
-}
-
 const item =[
   {
     key: '/home',
@@ -68,13 +54,7 @@ function Sidebar(props) {
     .catch(err=>{console.error(err)})
   }, [])
 
-  const newItem = sidebar.map(item=>{
-    return{
-      "key":item,
-      "icon":iconMap[item],
-      "label": changeTo[item],
-    }
-  })
+
   const selectKeys = [props.location.pathname]
   const openKeys = ["/"+props.location.pathname.split("/")[1]]
   const handleRouter = (e)=>props.history.push(e.keyPath[0])
@@ -86,8 +66,7 @@ function Sidebar(props) {
         defaultOpenKeys={openKeys}
         items={item}
         onClick={(e)=>handleRouter(e)}
-      >
-      </Menu>
+      />
     </Sider>
   )
 }

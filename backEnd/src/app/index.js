@@ -4,19 +4,20 @@ const Koa = require('koa')
 const KoaBody = require('koa-body')
 const KoaStatic = require('koa-static')
 const parameter = require('koa-parameter')
-const cors = require('koa2-cors')
+// const cors = require('koa2-cors')
+const cors = require('@koa/cors');
 const errHandler = require('./errHandler')
 const router = require('../router')
 
 const app = new Koa()
-// app.use(cors())
+app.use(cors())
 
-app.use(async (ctx, next)=> {
-  ctx.set('Access-Control-Allow-Origin', '*');
-  ctx.set('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
-  ctx.set('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
-  await next();
-})
+// app.use(async (ctx, next)=> {
+//   ctx.set('Access-Control-Allow-Origin', '*');
+//   ctx.set('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
+//   ctx.set('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
+//   await next();
+// })
 app.use(
   KoaBody({
     multipart: true,
