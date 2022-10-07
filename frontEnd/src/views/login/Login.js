@@ -34,8 +34,9 @@ function Login(){
     if (res.code === 0) {
       dispatch({ type: 'login_in', userName: res.result.jobNumber,token:res.result.token })
       history.push('/')
-      console.log(res.result.token)
       message.info(`欢迎登录${res.result.userName}`);
+      localStorage.setItem("userName",res.result.userName)
+      localStorage.setItem("token",res.result.token)
     } else {
       message.info(`${res.message}`);
     }

@@ -15,7 +15,8 @@ export default function HeaderComponent() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const showModal = () => setIsModalOpen(true)
 
-  const currentUser = useSelector(state => state.UserReducer.userName)
+  const currentUser = localStorage.getItem("userName")
+  // const currentUser = useSelector(state => state.UserReducer.userName)
   const currentToken = useSelector(state => state.UserReducer.token)
 
   const handleOk = () => {
@@ -26,7 +27,12 @@ export default function HeaderComponent() {
   const handleCancel = () => setIsModalOpen(false)
   const handleToInformation = ()=>history.push("/inform/infoRecord")
   const handleToHome = ()=>history.push("/home")
-  const onClick = ({ key }) => history.push(key)
+  const onClick = ({ key }) => {
+    if(key==='/login'){
+      localStorage.clear()
+    }
+    history.push(key)
+  }
   const listData = [
     {
       CodeNumber:'1',

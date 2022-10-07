@@ -8,6 +8,8 @@ import Home from './home/Home';
 import Message from './messages/Message';
 import Authority from './authority/Authority'
 import Project from './project/Project'
+import UserList from './authority/UserList'
+
 const { Content } = Layout;
 
 const MainPage = () => {
@@ -20,6 +22,7 @@ const MainPage = () => {
         <Switch>
           <Route exact path="/home" component={Home}/>
           <Route path="/authority" component={Authority}/>
+          <Route path="/user" component={UserList}/>
           <Route path="/project" component={Project}/>
           <Route path="/message" component={Message}/>
           <Redirect from="/" to="/home" exact/>

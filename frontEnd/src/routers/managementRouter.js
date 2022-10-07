@@ -8,8 +8,10 @@ export default function ManagementRouter() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/login" component={Login} />
-        <Route path="/" render={()=>
-          <MainPage />
+        <Route path="/" render={()=>{
+          return localStorage.getItem('userName')?<MainPage />:<Login />
+        }
+          // <MainPage />
         }/>
       </Switch>
     </BrowserRouter>
