@@ -5,7 +5,7 @@ const User = require('../model/use.model')
 // 创建用户
 class UserService{
   // 参数超过3个就用对象
-  async createUser(jobNumber,password,userName) {
+  async createUser(jobNumber,password,userName,jobTitle) {
     // User.create({
     //   // 表的字段
     //   jobNumber: jobNumber,
@@ -13,7 +13,7 @@ class UserService{
     // })
     // 参数设计和文档、数据库保持一致
     // await表达式:promise对象的值
-    const res = await User.create({ jobNumber,password,userName})
+    const res = await User.create({ jobNumber,password,userName,jobTitle})
     return res.dataValues
   };
 
@@ -69,6 +69,28 @@ class UserService{
     })
     return res?res.dataValues:null
   };
+
+  async getAllUsers(){
+    const res = await User.findAll({raw:true})
+    console.log(res)
+    return res?res:null
+  }
+
+  async switchPath(obj){
+    const path = await User.findByPk(obj.id)
+    await path.update({path:obj.path.join(',')})
+  }
+
+  async deleteUserService(obj){
+    // const path = await User.findByPk(obj.id)
+    const deleteUser = await User.destroy({
+      where:{
+        id:obj.id
+      }
+    })
+    console.log(deleteUser)
+    return deleteUser
+  }
 }
 
 module.exports = new UserService()

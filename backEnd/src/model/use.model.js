@@ -36,11 +36,28 @@ const User = seq.define('management_user', {
     allowNull: true,
     comment:'手机号码'
   },
+  permission:{
+    type:DataTypes.BOOLEAN(),
+    allowNull:true,
+    comment:"开关"
+  },
   avatar:{
     type:DataTypes.STRING(50),
     allowNull:true,
     comment:'头像'
+  },
+  path:{
+    type:DataTypes.STRING(),
+    allowNull:true,
+    comment:'路径'
+  },
+  department:{
+    type:DataTypes.STRING(50),
+    allowNull:true,
+    comment:"部门"
   }
+},{
+  timestamps:false
 })
 
 // 强制同步数据库（创建数据表，存在表就删除后重建
