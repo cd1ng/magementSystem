@@ -1,19 +1,19 @@
 const defaultUserState = {
-  userName: 'default',
-  token:""
+  userName: "default",
+  token: "",
 }
-const UserReducer=(state = defaultUserState, action) => {
+const UserReducer = (state = defaultUserState, action) => {
   switch (action.type) {
     case "login_out":
-      return { ...state, ...defaultUserState};
+      return { ...state, ...defaultUserState }
     case "login_in":
       return {
         ...state,
-        userName:action.userName,
-        token:action.token,
-      };
+        userName: action.userName,
+        token: action.token,
+      }
     default:
-      return state;
+      return state
   }
-};
+}
 export default UserReducer

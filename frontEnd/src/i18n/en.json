@@ -1,0 +1,9 @@
+{
+  "title":"managementSystem",
+  "home":{
+    "project":"project",
+    "progress":"progress",
+    "person":"person",
+    "todo":"todo"
+  }
+}

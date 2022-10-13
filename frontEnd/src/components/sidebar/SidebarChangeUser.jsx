@@ -7,7 +7,7 @@ const handleChange = (value) => {
  console.log(`selected ${value}`);
 };
 
-const SidebarChangeUser = memo((props) => {
+export const SidebarChangeUser = memo((props) => {
   const {user, setUser} = props
   const closeUser = () => setUser(false)
   const onFinish = (values) => {
@@ -37,4 +37,3 @@ const SidebarChangeUser = memo((props) => {
   )
 })
 
-export default SidebarChangeUser

@@ -2,7 +2,7 @@
   display: flex;
   height: 48px;
   line-height: 48px;
-  color: white;
+  color: white !important;
   justify-content: space-between;
 }
 

@@ -50,7 +50,7 @@ const treeDataAll = [
   },
 ];
 
-const SidebarTrees = memo((props) => {
+export const SidebarTrees = memo((props) => {
   const {authority, setAuthority, checkedKeys,setCheckedKeys,itemId} = props
 
   const closeAuthority = () => {
@@ -84,5 +84,3 @@ const SidebarTrees = memo((props) => {
   </Drawer>
   )
 })
-
-export default SidebarTrees

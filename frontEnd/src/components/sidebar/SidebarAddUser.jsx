@@ -6,11 +6,10 @@ const handleChange = (value) => {
   console.log(`selected ${value}`);
 };
 
-const SidebarAddUser = memo((props) => {
+export const SidebarAddUser = memo((props) => {
   const {addUser, setAddUser} = props
   const closeAddUser = () => setAddUser(false)
   const addUserFinish = async(values) => {
-    console.log(values)
     await fetch("http://localhost:8000/users/register", {
     method: 'POST',
     headers: {
@@ -59,5 +58,3 @@ const SidebarAddUser = memo((props) => {
   </Drawer>
   )
 })
-
-export default SidebarAddUser
