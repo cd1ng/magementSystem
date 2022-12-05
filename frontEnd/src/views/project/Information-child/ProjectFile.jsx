@@ -6,7 +6,26 @@ const utc = require("dayjs/plugin/utc")
 
 const ProjectFile = memo(() => {
   dayjs.extend(utc)
-  const [list, setList] = useState([])
+  const [list, setList] = useState([
+    {
+      uid: "rc-upload-1665665659281-2",
+      name: ".gitconfig",
+      lastDate: "2022-10-13 13:25:54",
+      url: "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
+    },
+    {
+      uid: "rc-upload-1665665659281-4",
+      name: "package-lock.json",
+      lastDate: "2022-09-27 08:45:39",
+      url: "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
+    },
+    {
+      uid: "rc-upload-1665665659281-6",
+      name: ".yarnrc",
+      lastDate: "2022-10-12 11:36:51",
+      url: "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
+    },
+  ])
   function changeItem(obj) {
     return {
       uid: obj.uid,

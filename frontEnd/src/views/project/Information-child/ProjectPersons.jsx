@@ -23,7 +23,8 @@ const ProjectPersons = memo(() => {
           offset={1}
           style={{ backgroundColor: "#fff", padding: "20px" }}
         >
-          <div style={{ height: "300px" }}></div>
+          <div style={{ marginTop: "10px" }}>管理人员：cding</div>
+          <div style={{ marginTop: "10px" }}>开发人员：张三，李四，王五</div>
         </Col>
       </Row>
     </>
